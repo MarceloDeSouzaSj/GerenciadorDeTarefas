@@ -46,21 +46,18 @@ O projeto também implementa filtros e ordenação na listagem de tarefas, facil
 1. Clone o repositório:
 git clone https://github.com/MarceloDeSouzaSj/GerenciadorDeTarefas.git
 
-2. Entre na pasta do projeto:
-cd nome-do-repositorio
-
-3. Restaure as dependências do .NET:
+2. Restaure as dependências do .NET:
 dotnet restore
 
-4. Compile o projeto:
+3. Compile o projeto:
 dotnet build
 
-5. Execute a aplicação:
-dotnet run
+4. Execute a aplicação:
+dotnet run --project GerenciadorDeTarefas.Web
 
-6. Abra o navegador e acesse a URL informada no terminal, geralmente:
-
-https://localhost:7170
+5. Abra o navegador e acesse a URL informada no terminal, geralmente:
+   
+https://localhost:7170 ou http://localhost:5121
 
 7. Pronto! A aplicação estará rodando localmente, permitindo:
 - Criar novas tarefas  
