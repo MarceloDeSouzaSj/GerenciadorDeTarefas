@@ -6,7 +6,7 @@ WORKDIR /src
 COPY *.sln ./
 RUN ls -l /src
 COPY GerenciadorDeTarefas.Web/*.csproj ./GerenciadorDeTarefas.Web/
-COPY GerenciadorDeTarefas.DataBase/*.csproj ./GerenciadorDeTarefas.DataBase/
+COPY GerenciadorDeTarefas.Infrastructure/*.csproj ./GerenciadorDeTarefas.Infrastructure/
 COPY GerenciadorDeTarefas.Dominio/*.csproj ./GerenciadorDeTarefas.Dominio/
 
 RUN dotnet restore GerenciadorDeTarefas.Web/GerenciadorDeTarefas.Web.csproj
