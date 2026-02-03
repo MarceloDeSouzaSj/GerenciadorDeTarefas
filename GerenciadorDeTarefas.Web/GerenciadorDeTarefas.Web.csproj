@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\GerenciadorDeTarefas.Domain\GerenciadorDeTarefas.Domain.csproj" />
+    <ProjectReference Include="..\GerenciadorDeTarefas.Infrastructure\GerenciadorDeTarefas.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="wwwroot\icons\" />
   </ItemGroup>
 
 </Project>

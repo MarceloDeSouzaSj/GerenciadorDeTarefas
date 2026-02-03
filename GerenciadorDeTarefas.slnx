@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="GerenciadorDeTarefas.Domain/GerenciadorDeTarefas.Domain.csproj" />
+  <Project Path="GerenciadorDeTarefas.Infrastructure/GerenciadorDeTarefas.Infrastructure.csproj" />
   <Project Path="GerenciadorDeTarefas.Web/GerenciadorDeTarefas.Web.csproj" />
 </Solution>
