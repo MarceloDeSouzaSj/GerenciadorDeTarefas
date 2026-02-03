@@ -5,7 +5,7 @@ namespace GerenciadorDeTarefas.Domain.Tarefas;
 
 public interface ITarefaService
 {
-    public Task Salvar(TarefaViewModel request);
+    Task Salvar(TarefaViewModel request);
     Task<TarefaViewModel?> BuscarPorId(Guid id);
     Task Remover(Guid id);
     Task<List<Tarefa>> Listar();

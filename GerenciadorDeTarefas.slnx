@@ -2,4 +2,5 @@
   <Project Path="GerenciadorDeTarefas.Domain/GerenciadorDeTarefas.Domain.csproj" />
   <Project Path="GerenciadorDeTarefas.Infrastructure/GerenciadorDeTarefas.Infrastructure.csproj" />
   <Project Path="GerenciadorDeTarefas.Web/GerenciadorDeTarefas.Web.csproj" />
+  <Project Path="GerenciamentoDeTarefas.Test/GerenciamentoDeTarefas.Test.csproj" Id="1639628e-f1da-46f2-b004-e653a2efc2be" />
 </Solution>
