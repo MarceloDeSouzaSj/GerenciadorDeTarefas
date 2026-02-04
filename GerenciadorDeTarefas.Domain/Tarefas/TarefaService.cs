@@ -9,6 +9,8 @@ public interface ITarefaService
     Task<TarefaViewModel?> BuscarPorId(Guid id);
     Task Remover(Guid id);
     Task<List<Tarefa>> Listar();
+    Task Restaurar(Guid id);
+    Task RemoverDefinitivamente(Guid id);
 }
 
 public class TarefaService : ITarefaService
@@ -57,4 +59,9 @@ public class TarefaService : ITarefaService
     public async Task Remover(Guid id) => await _tarefaRepository.Remover(id);
 
     public async Task<List<Tarefa>> Listar() => await _tarefaRepository.BuscarTodos();
+
+
+    public async Task Restaurar(Guid id) => await _tarefaRepository.Restaurar(id);
+
+    public async Task RemoverDefinitivamente(Guid id) => await _tarefaRepository.RemoverDefinitivamente(id);
 }

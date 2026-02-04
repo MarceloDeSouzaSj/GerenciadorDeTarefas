@@ -20,14 +20,24 @@ public class TarefaController : Controller
         return View(filter);
     }
 
-    public async Task<IActionResult> CreateAsync(Guid id)
+    public async Task<IActionResult> Create(Guid id)
     {
         var tarefa = await _tarefaService.BuscarPorId(id);
         return View(tarefa);
     }
 
+    public async Task<IActionResult> Lixeira()
+    {
+        var tarefas = await _tarefaService.Listar();
+        tarefas = tarefas.Where(t => t.ExcluidoEm.HasValue).ToList();
+
+        return View(tarefas);
+    }
+
     private List<Tarefa> FiltrarTarefas(TarefaFilter filter, List<Tarefa> tarefas)
     {
+        tarefas = tarefas.Where(q => !q.ExcluidoEm.HasValue).ToList();
+
         if (!string.IsNullOrWhiteSpace(filter.Search))
         {
             tarefas = tarefas

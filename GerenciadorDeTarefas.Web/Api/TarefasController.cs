@@ -28,4 +28,20 @@ public class TarefasController : ControllerBase
         
         return Redirect("/Tarefa/Index");
     }
+
+    [HttpPost, Route("Restaurar/{id:guid}")]  
+    public async Task<IActionResult> Restaurar(Guid id)
+    {
+        await _tarefaService.Restaurar(id);
+        
+        return Redirect("/Tarefa/Lixeira");
+    }
+
+    [HttpPost, Route("RemoverDefinitivamente/{id:guid}")]  
+    public async Task<IActionResult> RemoverDefinitivamente(Guid id)
+    {
+        await _tarefaService.RemoverDefinitivamente(id);
+        
+        return Redirect("/Tarefa/Lixeira");
+    }
 }

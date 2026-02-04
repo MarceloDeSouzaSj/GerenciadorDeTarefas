@@ -14,15 +14,23 @@
 </head>
 <body>
     <header>
-        <nav class="navbar app-navbar">
-            <a href="@Url.Action("Index", "Tarefa")" class="container d-flex justify-content-center align-items-center gap-2 text-decoration-none">
+        <nav class="navbar app-navbar py-2">
+            <div class="container d-flex align-items-center flex-sm-row flex-column gap-2">
+                <a href="@Url.Action("Index", "Tarefa")"
+                   class="mx-auto d-flex align-items-center gap-2 text-decoration-none">
 
-                <img src="/imagens/logo.svg"
-                     alt="Logo"
-                     class="app-logo">
+                    <img src="/imagens/logo.svg"
+                         alt="Logo"
+                         class="app-logo">
 
-                <h4 class="text-white mb-0">Gerenciador de Tarefas</h4>
-            </a>
+                    <h4 class="text-white mb-0">Gerenciador de Tarefas</h4>
+                </a>
+                <a href="@Url.Action("Lixeira", "Tarefa")"
+                   class="text-white text-decoration-none small"
+                   title="Visualizar tarefas excluídas">
+                    🗑 Lixeira
+                </a>
+            </div>
         </nav>
     </header>
     <div class="container">

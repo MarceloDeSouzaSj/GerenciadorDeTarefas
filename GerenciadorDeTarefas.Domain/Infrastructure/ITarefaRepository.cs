@@ -10,4 +10,7 @@ public interface ITarefaRepository
     Task Cadastrar(Tarefa tarefa);
     Task Atualizar(Tarefa tarefa);
     Task Remover(Guid id);
+    Task Restaurar(Guid id);
+    Task RemoverDefinitivamente(Guid id);
+    Task RemoverDefinitivamenteEmLote(List<Guid> ids);
 }
