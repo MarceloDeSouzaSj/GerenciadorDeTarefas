@@ -13,7 +13,7 @@ public class CronRemovedoraDeImagem : ICronRemovedoraDeImagem
 
     public async Task ExecutarAsync()
     {
-        DateTime hoje = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+        DateTime hoje = DateTime.UtcNow;
         var tarefas = await _tarefaRepository.BuscarTodos();
 
         var tarefasParaRemover = tarefas

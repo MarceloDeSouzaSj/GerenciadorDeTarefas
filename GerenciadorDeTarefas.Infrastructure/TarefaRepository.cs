@@ -56,7 +56,7 @@ public class TarefaRepository : ITarefaRepository
 
     public async Task Remover(Guid id)
     {
-        DateTime hoje = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+        DateTime hoje = DateTime.UtcNow;
 
         var tarefas = await BuscarTodos();
         var tarefa = tarefas.First(t => t.Id == id);

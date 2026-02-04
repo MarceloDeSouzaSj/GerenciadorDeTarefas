@@ -21,7 +21,7 @@ public class TarefaService : ITarefaService
 
     public Task Salvar(TarefaViewModel request)
     {
-        DateTime hoje = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+        DateTime hoje = DateTime.UtcNow;
 
         var tarefa = new Tarefa
         {
