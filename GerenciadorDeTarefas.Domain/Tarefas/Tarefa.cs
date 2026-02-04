@@ -8,4 +8,5 @@ public class Tarefa
     public required string Descricao { get; set; }
     public required string Status { get; set; }
     public required DateTime DataDeCriacao { get; set; }
+    public DateTime? ExcluidoEm { get; set; }
 }

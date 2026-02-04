@@ -1,4 +1,4 @@
-﻿using GerenciadorDeTarefas.Domain.Infrastructure;
+﻿using GerenciadorDeTarefas.Domain.Crons;
 using GerenciadorDeTarefas.Domain.Tarefas;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +13,7 @@ public static class DomainInjection
         _service = service;
 
         _service.AddTransient<ITarefaService, TarefaService>();
+        _service.AddTransient<ICronRemovedoraDeImagem, CronRemovedoraDeImagem>();
     }
 
 }

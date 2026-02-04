@@ -22,7 +22,7 @@
 <form action="" method="get" class="row g-3">
     <div class="col-lg-5">
         <label asp-for="Search" class="fw-semibold">Buscar</label>
-        <input asp-for="Search" class="form-control" placeholder="Busque por título, descrição ou status"/>
+        <input asp-for="Search" class="form-control" placeholder="Busque por título, descrição ou status" />
     </div>
 
     <div class="col-lg-4">
@@ -50,51 +50,55 @@
     </div>
 </form>
 
-<div class="table-responsive-lg mt-3">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Título</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Status</th>
-                <th scope="col"> </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var tarefa in tarefas)
-            {
-                <tr>
-                    <th>@tarefa.Titulo</th>
-                    <th>@tarefa.Descricao</th>
-                    <th><span class="badge bg-secondary">@tarefa.Status</span></th>
-                    <th class="text-end">
-                        <div class="dropdown">
-                            <button class="btn border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="icon-ellipsis-horizontal"></div>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="@Url.Action("Create", new { Id = tarefa.Id })">Editar</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <form action="/api/Tarefas/Remover/@tarefa.Id" method="post">
-                                        <button type="submit"
-                                                class="btn dropdown-item text-danger"
-                                                onclick="return confirm('Tem certeza que deseja remover?')">
-                                            Excluir
-                                        </button>
-                                    </form>
-
-                                </li>
-                            </ul>
-                        </div>
-                    </th>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
 @if (!tarefas.Any())
 {
-    <h5 class="text-center">Nenhum dado encontrado</h5>
+    <div class="alert alert-info mt-3">
+        Nenhuma tarefa encontrada
+    </div>
+}
+else
+{
+    <div class="table-responsive-lg mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Título</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tarefa in tarefas)
+                {
+                    <tr>
+                        <th>@tarefa.Titulo</th>
+                        <th>@tarefa.Descricao</th>
+                        <th><span class="badge bg-secondary">@tarefa.Status</span></th>
+                        <th class="text-end">
+                            <div class="dropdown">
+                                <button class="btn border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="icon-ellipsis-horizontal"></div>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="@Url.Action("Create", new { Id = tarefa.Id })">Editar</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li>
+                                        <form action="/api/Tarefas/Remover/@tarefa.Id" method="post">
+                                            <button type="submit"
+                                                    class="btn dropdown-item text-danger"
+                                                    onclick="return confirm('Tem certeza que deseja remover?')">
+                                                Excluir
+                                            </button>
+                                        </form>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }

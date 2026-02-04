@@ -1,0 +1,62 @@
+﻿@using GerenciadorDeTarefas.Domain.Tarefas
+@model List<Tarefa>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3>Lixeira</h3>
+
+        <a href="@Url.Action("Index", "Tarefa")" class="btn btn-secondary">
+            Voltar
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Nenhuma tarefa na lixeira
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th>Excluído em</th>
+                        <th class="text-end">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tarefa in Model)
+                    {
+                        <tr>
+                            <td>@tarefa.Titulo</td>
+                            <td>@tarefa.Descricao</td>
+                            <th><span class="badge bg-secondary">@tarefa.Status</span></th>
+                            <td>@tarefa.ExcluidoEm!.Value.ToString("dd/MM/yyyy")</td>
+                            <td class="text-end d-flex justify-content-end gap-2">
+
+                                <form action="/api/Tarefas/Restaurar/@tarefa.Id" method="post">
+                                    <button type="submit" class="btn btn-sm btn-success">
+                                        Restaurar
+                                    </button>
+                                </form>
+
+                                <form action="/api/Tarefas/RemoverDefinitivamente/@tarefa.Id" method="post">
+                                    <button onclick="return confirm('Tem certeza que deseja remover definitivamente?')" type="submit" class="btn btn-sm btn-danger">
+                                        Excluir
+                                    </button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
