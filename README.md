@@ -24,6 +24,11 @@ O projeto também implementa filtros e ordenação na listagem de tarefas, facil
 - Todos os dados são armazenados em **arquivo JSON**.
 - Operações de leitura e gravação garantem persistência entre execuções.
 
+### Soft Delete (Lixeira) e Job de Limpeza 
+- Ao excluir uma tarefa, ela é movida para a lixeira em vez de ser removida imediatamente.  
+- A tela de Lixeira permite visualizar as tarefas excluídas e restaurá-las se necessário.  
+- A exclusão definitiva pode ser feita manualmente ou através de um job de limpeza que remove os itens excluídos há mais de 30 dias.
+
 ---
 
 ## Tecnologias utilizadas
